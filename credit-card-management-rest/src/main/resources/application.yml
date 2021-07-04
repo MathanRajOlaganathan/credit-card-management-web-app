@@ -1,0 +1,27 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:appdb
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: password
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+  h2:
+    console:
+      enabled: true
+      path: /h2
+
+  application:
+    name: CREDIT-CARD-MANAGEMENT-SERVICE
+server:
+  port: 8080
+app:
+  version: 1.0
+  description: Restful service using Spring Boot for credit card management
+springdoc:
+  api-docs:
+    enabled: true
+    path: /api-docs
+  swagger-ui:
+    path: /swagger-ui
+

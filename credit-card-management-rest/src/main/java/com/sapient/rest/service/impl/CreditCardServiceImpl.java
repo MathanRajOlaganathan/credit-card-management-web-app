@@ -3,6 +3,7 @@ package com.sapient.rest.service.impl;
 import com.sapient.rest.domain.dto.CreditCardRequest;
 import com.sapient.rest.domain.entity.CreditCard;
 import com.sapient.rest.domain.mapper.CreditCardMapper;
+import com.sapient.rest.exception.NotFoundException;
 import com.sapient.rest.repository.CreditCardRepository;
 import com.sapient.rest.service.CreditCardService;
 import lombok.RequiredArgsConstructor;
@@ -14,7 +15,7 @@ import java.util.List;
 /**
  * @author Mathan Raj O
  * @version 1.0
- * @since 03/06/2021
+ * @since 03/07/2021
  */
 @Service
 @RequiredArgsConstructor
@@ -26,8 +27,8 @@ public class CreditCardServiceImpl implements CreditCardService {
     private final CreditCardMapper creditCardMapper;
 
     @Override
-    public CreditCard findById(Long Id) {
-        return creditCardRepository.findById(Id).get();
+    public CreditCard findById(Long id) {
+        return creditCardRepository.findById(id).orElseThrow(() -> new NotFoundException("Credit Card not found for the id " + id));
     }
 
     @Override
