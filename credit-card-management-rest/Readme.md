@@ -69,14 +69,14 @@ The application defines following REST APIs
 
 <http://localhost:8080/api/sapient/creditcard>
 
-![getAllCreditCards](https://github.com/MathanRajOlaganathan/credit-card-management-web-app/blob/main/credit-card-management-rest/imgs/getAllCreditCards.png?raw=true)
+![getAllCreditCards](https://github.com/MathanRajOlaganathan/credit-card-management-web-app/blob/main/credit-card-management-rest/images/getAllCreditCards.png)
 
 
 **2.Get Credit Card By Id*
 
 <http://localhost:8080/api/sapient/creditcard/1>.
 
-![getCreditCardById](https://github.com/MathanRajOlaganathan/credit-card-management-web-app/blob/main/credit-card-management-rest/imgs/getCreditCardById.png?raw=true)
+![getCreditCardById](https://github.com/MathanRajOlaganathan/credit-card-management-web-app/blob/main/credit-card-management-rest/images/getCreditCardById.png)
 
 
 **3.Add Credit Card**
@@ -84,7 +84,7 @@ The application defines following REST APIs
 POST
 <http://localhost:8080/api/sapient/creditcard>.
 
-![addCreditCard](https://github.com/MathanRajOlaganathan/credit-card-management-web-app/blob/main/credit-card-management-rest/imgs/addCreditCard.png?raw=true)
+![addCreditCard](https://github.com/MathanRajOlaganathan/credit-card-management-web-app/blob/main/credit-card-management-rest/images/addCreditCard.png)
 
 
 
