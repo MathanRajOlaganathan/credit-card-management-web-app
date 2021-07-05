@@ -28,17 +28,13 @@ import static org.mockito.Mockito.when;
 @ExtendWith(MockitoExtension.class)
 class CreditCardControllerTest {
 
+    private static CreditCardRequest creditCardRequest;
+    private static List<CreditCard> creditCardList;
+    private static CreditCard creditCard;
     @InjectMocks
     CreditCardController creditCardController;
-
     @Mock
     CreditCardService creditCardService;
-
-    private static CreditCardRequest creditCardRequest;
-
-    private static List<CreditCard> creditCardList;
-
-    private static CreditCard creditCard;
 
     @BeforeAll
     public static void setup() {

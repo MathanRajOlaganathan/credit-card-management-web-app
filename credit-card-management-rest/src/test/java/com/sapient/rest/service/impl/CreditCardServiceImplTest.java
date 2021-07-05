@@ -34,24 +34,17 @@ import static org.mockito.Mockito.when;
 @ExtendWith(MockitoExtension.class)
 class CreditCardServiceImplTest {
 
-    @Mock
-    private CreditCardRepository creditCardRepository;
-
-    @Mock
-    private EntityManager entityManager;
-
-    @Spy
-    private CreditCardMapper creditCardMapper = Mappers.getMapper(CreditCardMapper.class);
-
+    private static CreditCardRequest creditCardRequest;
+    private static List<CreditCard> creditCardList;
+    private static CreditCard creditCard;
     @InjectMocks
     CreditCardServiceImpl creditCardService;
-
-    private static CreditCardRequest creditCardRequest;
-
-    private static List<CreditCard> creditCardList;
-
-    private static CreditCard creditCard;
-
+    @Mock
+    private CreditCardRepository creditCardRepository;
+    @Mock
+    private EntityManager entityManager;
+    @Spy
+    private CreditCardMapper creditCardMapper = Mappers.getMapper(CreditCardMapper.class);
 
     @BeforeAll
     public static void setUp() {

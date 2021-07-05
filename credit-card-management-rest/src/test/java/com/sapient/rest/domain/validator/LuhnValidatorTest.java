@@ -3,7 +3,6 @@ package com.sapient.rest.domain.validator;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -22,7 +21,7 @@ class LuhnValidatorTest {
 
 
     @BeforeEach
-    public void setUp(){
+    public void setUp() {
         constraintValidatorContext = mock(ConstraintValidatorContext.class);
         luhnValidator = new LuhnValidator();
     }
@@ -30,14 +29,10 @@ class LuhnValidatorTest {
     @Test
     public void testLuhn10Algorithm() {
         String cardNumber = "4716435917330099";
-        assertTrue( luhnValidator.isValid(cardNumber,constraintValidatorContext) );
+        assertTrue(luhnValidator.isValid(cardNumber, constraintValidatorContext));
 
         String inValidCardNumber = "3123123123213";
-        assertFalse( luhnValidator.isValid(inValidCardNumber,constraintValidatorContext) );
+        assertFalse(luhnValidator.isValid(inValidCardNumber, constraintValidatorContext));
     }
 
-    @Override
-    public void initialize(LuhnConstraint constraintAnnotation) {
-        ConstraintValidator.super.initialize(constraintAnnotation);
-    }
 }

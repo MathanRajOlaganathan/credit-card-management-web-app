@@ -1,8 +1,7 @@
 package com.sapient.rest.exception;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.context.support.DefaultMessageSourceResolvable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -33,31 +32,27 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<ApiCallError<String>> handleInternalServerError(HttpServletRequest request, MethodArgumentNotValidException ex) {
-        log.error("ConstraintViolationException {}\n", request.getRequestURI(), ex.toString());
+        log.error("ConstraintViolationException - {} - {}\n", request.getRequestURI(), ex.toString());
 
         return ResponseEntity
                 .status(HttpStatus.BAD_REQUEST)
                 .body(new ApiCallError<>("Constraint Violation Exception",
                         ex.getBindingResult().
                                 getAllErrors().stream()
-                                .map(error -> error.getDefaultMessage()).collect(Collectors.toList()
+                                .map(DefaultMessageSourceResolvable::getDefaultMessage).collect(Collectors.toList()
 
                         )));
     }
 
     @ExceptionHandler(Exception.class)
     public ResponseEntity<ApiCallError<String>> handleInternalServerError(HttpServletRequest request, Exception ex) {
-        log.error("handleInternalServerError {}\n", request.getRequestURI(), ex.toString());
+        log.error("handleInternalServerError - {} - {}\n", request.getRequestURI(), ex.toString());
 
         return ResponseEntity
                 .status(HttpStatus.INTERNAL_SERVER_ERROR)
                 .body(new ApiCallError<>("Internal server error", List.of(ex.getMessage())));
     }
 
-    @Getter
-    @AllArgsConstructor
-    private static class ApiCallError<T> {
-        private final String message;
-        private final List<T> details;
-    }
+
+    public record ApiCallError<T> (String message, List<T> details) {}
 }

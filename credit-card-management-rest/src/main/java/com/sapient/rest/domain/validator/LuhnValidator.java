@@ -8,7 +8,7 @@ import javax.validation.ConstraintValidatorContext;
  * @version 1.0
  * @since 03/07/2021
  */
-public class LuhnValidator implements ConstraintValidator<LuhnConstraint,String> {
+public class LuhnValidator implements ConstraintValidator<LuhnConstraint, String> {
 
 
     @Override
@@ -32,9 +32,9 @@ public class LuhnValidator implements ConstraintValidator<LuhnConstraint,String>
             ints[i] = j;
         }
         int sum = 0;
-        for (int i = 0; i < ints.length; i++) {
-            sum += ints[i];
+        for (int anInt : ints) {
+            sum += anInt;
         }
-        return  (sum % 10 == 0) ;
+        return (sum % 10 == 0);
     }
 }
