@@ -29,7 +29,7 @@ Alternatively, you can run the app without packaging it using -
 ```bash
 mvn spring-boot:run
 ```
-Alternatively, you can run the built  jar which is  placed under Eebria-Service directory -
+Alternatively, you can run the built  jar which is  placed under credit-card-management-rest directory -
 
 ```bash
 java -jar target/credit-card-rest-1.0.0.jar 
